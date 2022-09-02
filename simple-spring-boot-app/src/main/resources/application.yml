@@ -1,0 +1,22 @@
+spring:
+  name: spring-boot-app
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/app
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    sql:
+      init:
+        mode: never
+        platform: postgres
+    flyway:
+      baseline-on-migrate: true
+    jpa:
+      database: postgresql
+      show-sql: false
+      generate-ddl: false
+      open-in-view: false
+      hibernate:
+        ddl-auto: validate
+      properties:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
